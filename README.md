@@ -8,7 +8,7 @@
 2. **Extract the Data**:
    - Extract the archive into this specific folder:
      ```
-     raw_ecg_folder_name
+     raw_ecg
      ```
 3. **Install Required Packages**:
    - Install all the necessary Python packages from the `requirements.txt` file:
