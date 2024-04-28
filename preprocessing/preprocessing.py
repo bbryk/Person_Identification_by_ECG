@@ -57,9 +57,9 @@ if __name__ == "__main__":
 
     # Add arguments
     parser.add_argument('--test', type=bool, default=True, help='A boolean to set the test mode')
-    parser.add_argument('--raw_ecg_dir', type=str, default="ec_data_full", help='Directory for raw ECG data')
-    parser.add_argument('--sample_ecg_dir', type=str, default="ec_samples", help='Directory for ECG samples')
-    parser.add_argument('--sample_ecg_test_dir', type=str, default="ec_test_samples",
+    parser.add_argument('--raw_ecg_dir', type=str, default="raw_ecg/ecg_data_full", help='Directory for raw ECG data')
+    parser.add_argument('--sample_ecg_dir', type=str, default="ecg_samples", help='Directory for ECG samples')
+    parser.add_argument('--sample_ecg_test_dir', type=str, default="ecg_test_samples",
                         help='Directory for ECG test samples')
 
     args = parser.parse_args()

@@ -102,7 +102,7 @@ if __name__ == "__main__":
     parser.add_argument('--num_train_subjects', type=int, default=100, help='Number of training subjects')
     parser.add_argument('--num_test_subjects', type=int, default=50, help='Number of testing subjects')
     parser.add_argument('--m', type=float, default=0.1, help='Margin parameter m for loss calculation')
-    parser.add_argument('--data_folder', type=str, default='../ddiplom_test/git_ecg_samples',
+    parser.add_argument('--data_folder', type=str, default='../preprocessing/ecg_samples',
                         help='Data folder containing ECG data')
     args = parser.parse_args()
 
@@ -124,9 +124,9 @@ if __name__ == "__main__":
     np.random.seed(seed)
     start_time = time.time()
 
-
+#--num_train_subjects 100 --m 0.5 --data_folder "../preprocessing/ecg_samples"
 # "--num_train_subjects 100 --num_test_subjects 50 --m 0.1 --data_folder "../data_samples/diplom_test/git_ecg_samples""
-
+#--num_train_subjects 100 --num_test_subjects 50 --m 0.5 --data_folder "../preprocessing/ecg_samples"
     # margin_str = "01"
     # num_test = 250
     to_test = True
