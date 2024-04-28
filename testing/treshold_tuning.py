@@ -1,15 +1,8 @@
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.utils.data import DataLoader, Dataset
+i
 import numpy as np
 import os
 import matplotlib.pyplot as plt
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import math
+
 
 
 # test_num = 400
@@ -129,18 +122,15 @@ def tune_threshold(embeddings, margin_str, num_train_subjects, num_test_subjects
         plt.plot(dif, label='Cosine Distances for samples from different classes')
         plt.plot(same, label='Cosine Distances for samples from the same classes')
 
-        # Add a horizontal line at the threshold value
         plt.axhline(y=threshold, color='r', linestyle='--', label='Optimized threshold')
 
-        # Adding labels and title with increased font sizes
-        plt.xlabel('Samples', fontsize=18)  # Increase font size for x-axis label
-        plt.ylabel('Cosine Distance', fontsize=18)  # Increase font size for y-axis label
-        plt.title('Cosine Distances for Same and Different Classes', fontsize=20)  # Increase font size for title
 
-        # Enhance the legend by increasing its font size
-        plt.legend(fontsize=15)  # Increase font size for legend
+        plt.xlabel('Samples', fontsize=18)
+        plt.ylabel('Cosine Distance', fontsize=18)
+        plt.title('Cosine Distances for Same and Different Classes', fontsize=20)
 
-        # Show the plot
+        plt.legend(fontsize=15)
+
         plt.show()
 
     print(f"Optimized Threshold: {threshold}")
