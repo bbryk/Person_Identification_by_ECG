@@ -127,7 +127,7 @@ if __name__ == "__main__":
     start_time = time.time()
 
 
-# "--num_train_subjects 100 --num_test_subjects 50 --m 0.1 --data_folder "../diplom_test/git_ecg_samples""
+# "--num_train_subjects 100 --num_test_subjects 50 --m 0.1 --data_folder "../data_samples/diplom_test/git_ecg_samples""
 
     # margin_str = "01"
     # num_test = 250

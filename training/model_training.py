@@ -312,8 +312,9 @@ if __name__=="__main__":
             file.write("Train loss: ")
             file.write(', '.join(map(str, epoch_train_losses)))
             file.write("\n")
+
             file.write("Validation loss: ")
-            file.write(', '.join(map(str, epoch_val_losses)))
+            file.write(f"{val_loss / len(test_dataloader)}\n")
             file.write("\n")
 
         file.write("########################################################\n")

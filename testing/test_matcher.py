@@ -70,7 +70,7 @@ def generate_template(enroll_embeddings):
 
 
 def compare_with_template(test_embeddings, template):
-    print(len(test_embeddings.shape))
+    # print(len(test_embeddings.shape))
     if len(test_embeddings.shape) > 1:
         norms_test = np.linalg.norm(test_embeddings, axis=1, keepdims=True)
     else:
@@ -111,11 +111,11 @@ if __name__ == "__main__":
     num_train_subjects = 100
     m = 0.1
     num_test = 50
-    data_folder = '../diplom_test/git_ecg_samples'
+    data_folder = '../data_samples/diplom_test/git_ecg_samples'
 
     num_train_subjects = args.num_train_subjects
     m = args.m
-    data_folder = args.data_folder
+    data_folder_test = args.data_folder
     num_test = args.num_test_subjects
 
     margin_str = str(m)[0]+str(m)[2]
@@ -125,7 +125,7 @@ if __name__ == "__main__":
     start_time = time.time()
 
 
-# "--num_train_subjects 100 --num_test_subjects 50 --m 0.1 --data_folder "../diplom_test/git_ecg_samples""
+# "--num_train_subjects 100 --num_test_subjects 50 --m 0.1 --data_folder "../data_samples/diplom_test/git_ecg_samples""
 
     # margin_str = "01"
     # num_test = 250
@@ -133,7 +133,7 @@ if __name__ == "__main__":
     batch_size = 200
     ENROLL_SIZE = 10
     THRESHOLD_TUNING_SIZE = 10
-    data_folder_test = '../diplom_test/git_ecg_samples'
+    # data_folder_test = '../diplom_test/git_ecg_samples'
     model = ResNet1D()
     torch_dict = torch.load(f'../training/models/models_{num_train_subjects}/ver2_m_{margin_str}_{num_train_subjects}.pth')
 
@@ -258,9 +258,9 @@ if __name__ == "__main__":
     FRR = "{:.7f}".format(100 * FRR)
     print(f"FAR {FAR}%")
     print(f"FRR {FRR}%")
-    os.makedirs(f"git_logs", exist_ok=True)
+    os.makedirs(f"logs", exist_ok=True)
 
-    log_file_path = f"git_logs/log_{num_train_subjects}_{num_test}_{margin_str}"
+    log_file_path = f"logs/log_{num_train_subjects}_{num_test}_{margin_str}"
     with open(log_file_path, 'a') as file:
         file.write(f"Threshold: {threshold}\n")
         file.write(f"Mean Distance Different Subjects: {np.mean(dif)}\n")

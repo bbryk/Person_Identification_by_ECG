@@ -1,0 +1,6 @@
+Threshold: 0.46435546875
+Mean Distance Different Subjects: 0.961132287979126
+Mean Distance Same Subjects: 0.08276022225618362
+False Acceptance Rate (FAR): 0.6034937%
+False Rejection Rate (FRR): 0.7493734%
+########################################################
