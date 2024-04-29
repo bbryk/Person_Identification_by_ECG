@@ -69,9 +69,8 @@ To generate heartbeat samples from the continuous ECG signal, follow these steps
     After training model will be saved into the path:  
 `training/models/models_{num_train_subjects}/ver2_m_{str(m)[0]+str(m)[2]}_{num_train_subjects}.pth`
 
-    To train the model, execute the following command:
-Command line parameters values are just the example, you can put yours `num_train_subjects`  
-and `m`
+    To train the model, execute the following command:  
+Command line parameters values are just the example, you can put yours `num_train_subjects` and `m`
     
     ```bash
     cd training
@@ -112,8 +111,8 @@ and `m`
   - **Default Value**: `../preprocessing/ecg_samples`
   - **Example**: `--data_folder "path/to/your/ecg_data"`
  **Usage**
-Command line parameters values are just the example, you can put yours `num_train_subjects` , `num_test_subjects`  
-and `m`, but ensure, that model with such parameters exists.
+Command line parameters values are just the example.  
+  You can put yours `num_train_subjects`, `num_test_subjects` and `m`, but ensure, that model with such parameters exists.
      ```bash
     cd testing  
     ```
