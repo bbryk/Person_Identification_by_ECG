@@ -48,11 +48,15 @@ To generate heartbeat samples from the continuous ECG signal, follow these steps
   - **Example**: `--sample_ecg_test_dir "path/to/your/ecg_test_samples"`  
  **Usage**
      ```bash
-     python preprocessing/preprocessing.py --test True --raw_ecg_dir "../raw_ecg/physionet_ecg_data_full" --sample_ecg_dir "ecg_samples" --sample_ecg_test_dir "ecg_test_samples"
+     cd preprocessing
+     ```
+    
+     ```bash
+     python preprocessing.py --test True --raw_ecg_dir "../raw_ecg/physionet_ecg_data_full" --sample_ecg_dir "ecg_samples" --sample_ecg_test_dir "ecg_test_samples"
      ```
      
      ```bash
-     python preprocessing/preprocessing.py --test False --raw_ecg_dir "../raw_ecg/physionet_ecg_data_full" --sample_ecg_dir "ecg_samples" --sample_ecg_test_dir "ecg_test_samples"
+     python preprocessing.py --test False --raw_ecg_dir "../raw_ecg/physionet_ecg_data_full" --sample_ecg_dir "ecg_samples" --sample_ecg_test_dir "ecg_test_samples"
      ```
 
    - This command sets up the script to process data assuming a test environment, specifying directories for the raw data and where to save the processed samples.
@@ -69,10 +73,12 @@ Make sure that the specified `data_folder` contains the preprocessed ECG data re
 
 To train the model, execute the following command:
 
-
+```bash
+cd training
+```
  
 ```bash
-python training/model_training.py --num_train_subjects 100 --m 0.5 --data_folder "../preprocessing/ecg_samples"
+python model_training.py --num_train_subjects 100 --m 0.5 --data_folder "../preprocessing/ecg_samples"
 ```
 
 
@@ -107,8 +113,15 @@ python training/model_training.py --num_train_subjects 100 --m 0.5 --data_folder
   - **Example**: `--data_folder "path/to/your/ecg_data"`
  **Usage**
      ```bash
-    python testing/test_matcher.py --num_train_subjects 100 --num_test_subjects 50 --m 0.5 --data_folder "../preprocessing/ecg_samples"
+    cd testing  
+    ```
+     ```bash
+    python test_matcher.py --num_train_subjects 100 --num_test_subjects 50 --m 0.5 --data_folder "../preprocessing/ecg_samples"
      ```
+    
+    test_mather script will generate log file in logs directory.  
+  - If log file exist, the new logging will be added to the file,  
+  - so the newest results for this model are presented as the last part of the log file
 
 
 
