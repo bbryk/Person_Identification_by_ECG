@@ -1,18 +1,9 @@
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.utils.data import DataLoader, Dataset
-import numpy as np
-import os
-from itertools import chain
+
 import numpy as np
 import os
 import torch
 from torch.utils.data import Dataset, DataLoader, Subset
-from sklearn.model_selection import KFold
-import torch
-import torch.nn as nn
+
 from torch.utils.data import DataLoader, Subset
 from sklearn.model_selection import KFold
 from itertools import chain
@@ -208,7 +199,7 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Process some inputs.')
     parser.add_argument('--num_train_subjects', type=int, default=100, help='Number of training subjects')
     parser.add_argument('--m', type=float, default=0.1, help='Margin parameter m for loss calculation')
-    parser.add_argument('--data_folder', type=str, default='../ddiplom_test/git_ecg_samples',
+    parser.add_argument('--data_folder', type=str, default="../preprocessing/ecg_samples",
                         help='Data folder containing ECG data')
     args = parser.parse_args()
 
@@ -216,7 +207,7 @@ if __name__=="__main__":
     # for num_train_subjects in [400, 250, 100]:
     num_train_subjects = 100
     m = 0.1
-    data_folder = '../diplom_test/git_ecg_samples'
+    data_folder = "../preprocessing/ecg_samples"
 
     num_train_subjects = args.num_train_subjects
     m = args.m

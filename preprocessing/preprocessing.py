@@ -13,7 +13,9 @@ from scipy.signal import find_peaks
 from scipy.signal import resample
 from new_filter import detect_peaks
 from scipy.stats import pearsonr
-
+import numpy as np
+from scipy.signal import butter, filtfilt
+import os
 
 def butter_lowpass(cutoff, fs, order=5):
     return butter(order, cutoff, fs=fs, btype='low', analog=False)
@@ -31,23 +33,9 @@ def save_sample(array, file_path):
     return file_path
 
 
-import numpy as np
-from scipy.signal import butter, filtfilt
-import os
 
-errs = []
 
-# directory = "git_ecg_data_full"
 
-# Extension to look for
-
-# Iterate through all files in the directory
-# for filename in os.listdir(directory):
-#     # Check if the file ends with the .dat extension
-#     if filename.endswith(extension):
-#         # Remove the extension and print the filename
-#         file_without_extension = os.path.splitext(filename)[0]
-#         print(file_without_extension)
 
 
 import argparse
@@ -55,9 +43,8 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Process some inputs.')
 
-    # Add arguments
     parser.add_argument('--test', type=int, default=0, help='A boolean to set the test mode')
-    parser.add_argument('--raw_ecg_dir', type=str, default="../raw_ecg/git_ecg_data_full", help='Directory for raw ECG data')
+    parser.add_argument('--raw_ecg_dir', type=str, default="../raw_ecg/physionet_ecg_data_full/git_ecg_data_full", help='Directory for raw ECG data')
     parser.add_argument('--sample_ecg_dir', type=str, default="ecg_samples", help='Directory for ECG samples')
     parser.add_argument('--sample_ecg_test_dir', type=str, default="ecg_test_samples",
                         help='Directory for ECG test samples')
@@ -86,10 +73,8 @@ if __name__ == "__main__":
     print(f"Sample ECG test directory: {sample_ecg_test_dir}")
 
     for filename in os.listdir(raw_ecg_dir):
-        # Check if the file ends with the .dat extension
         if filename.endswith(extension):
             i+=1
-            # Remove the extension and print the filename
             file_without_extension = os.path.splitext(filename)[0]
             print(file_without_extension)
             file_num = int(file_without_extension)

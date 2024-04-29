@@ -111,7 +111,7 @@ if __name__ == "__main__":
     num_train_subjects = 100
     m = 0.1
     num_test = 50
-    data_folder = '../data_samples/diplom_test/git_ecg_samples'
+    data_folder = '../preprocessing/ecg_samples'
 
     num_train_subjects = args.num_train_subjects
     m = args.m
