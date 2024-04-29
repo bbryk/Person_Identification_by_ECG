@@ -56,15 +56,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some inputs.')
 
     # Add arguments
-    parser.add_argument('--test', type=bool, default=True, help='A boolean to set the test mode')
-    parser.add_argument('--raw_ecg_dir', type=str, default="raw_ecg/ecg_data_full", help='Directory for raw ECG data')
+    parser.add_argument('--test', type=int, default=0, help='A boolean to set the test mode')
+    parser.add_argument('--raw_ecg_dir', type=str, default="../raw_ecg/git_ecg_data_full", help='Directory for raw ECG data')
     parser.add_argument('--sample_ecg_dir', type=str, default="ecg_samples", help='Directory for ECG samples')
     parser.add_argument('--sample_ecg_test_dir', type=str, default="ecg_test_samples",
                         help='Directory for ECG test samples')
 
     args = parser.parse_args()
-    TEST = True
-
     # raw_ecg_dir = "git_ecg_data_full"
     # sample_ecg_dir = "git_ecg_samples"
     # sample_ecg_test_dir = "git_ecg_test_samples"
@@ -106,7 +104,7 @@ if __name__ == "__main__":
 
 
             # CHANGES HERE
-            if TEST:
+            if TEST==0:
                 signal = signal[300000:400000, 0]
             else:
                 signal = signal[:300000, 0]
@@ -177,7 +175,7 @@ if __name__ == "__main__":
                 continue
             one_sample = filtered_signal[peaks[1] - LEFT_BOUND:peaks[1] + RIGHT_BOUND]
 
-            if TEST:
+            if TEST==0:
                 SAMPLE_NUM = 31
             else:
                 SAMPLE_NUM = 201
@@ -188,7 +186,7 @@ if __name__ == "__main__":
             for j in range(1, SAMPLE_NUM):
                 # RESAMPLING TO 300 POINTS (428 Hz)
                 resampled_signal = resample(filtered_signal[peaks[j] - LEFT_BOUND:peaks[j] + RIGHT_BOUND], 300)
-                if TEST:
+                if TEST==0:
 
                     dir_path = f"{sample_ecg_test_dir}/{file_num}"
                     os.makedirs(dir_path, exist_ok=True)

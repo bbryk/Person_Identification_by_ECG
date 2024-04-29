@@ -206,7 +206,7 @@ import argparse
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Process some inputs.')
-    parser.add_argument('--num_train_subjects', type=int, default=0, help='Number of training subjects')
+    parser.add_argument('--num_train_subjects', type=int, default=100, help='Number of training subjects')
     parser.add_argument('--m', type=float, default=0.1, help='Margin parameter m for loss calculation')
     parser.add_argument('--data_folder', type=str, default='../ddiplom_test/git_ecg_samples',
                         help='Data folder containing ECG data')
