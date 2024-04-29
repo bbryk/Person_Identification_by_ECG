@@ -59,7 +59,6 @@ To generate heartbeat samples from the continuous ECG signal, follow these steps
      python preprocessing.py --test 1 --raw_ecg_dir "../raw_ecg/physionet_ecg_data_full/git_ecg_data_full" --sample_ecg_dir "ecg_samples" --sample_ecg_test_dir "ecg_test_samples"
      ```
 
-   - This command sets up the script to process data assuming a test environment, specifying directories for the raw data and where to save the processed samples.
 5. **Run the Training Script**:
     #### Parameters:
    - `--num_train_subjects`: The number of training subjects. Specifies how many subjects' data to include in the training process.
@@ -68,9 +67,11 @@ To generate heartbeat samples from the continuous ECG signal, follow these steps
     
     Make sure that the specified `data_folder` contains the preprocessed ECG data ready for training. 
     After training model will be saved into the path:  
-`models/models_{num_train_subjects}/ver2_m_{str(m)[0]+str(m)[2]}_{num_train_subjects}.pth`
+`training/models/models_{num_train_subjects}/ver2_m_{str(m)[0]+str(m)[2]}_{num_train_subjects}.pth`
 
     To train the model, execute the following command:
+Command line parameters values are just the example, you can put yours `num_train_subjects`  
+and `m`
     
     ```bash
     cd training
@@ -111,6 +112,8 @@ To generate heartbeat samples from the continuous ECG signal, follow these steps
   - **Default Value**: `../preprocessing/ecg_samples`
   - **Example**: `--data_folder "path/to/your/ecg_data"`
  **Usage**
+Command line parameters values are just the example, you can put yours `num_train_subjects` , `num_test_subjects`  
+and `m`, but ensure, that model with such parameters exists.
      ```bash
     cd testing  
     ```
